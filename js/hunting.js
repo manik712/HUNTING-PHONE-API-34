@@ -52,13 +52,14 @@ phones.forEach(phone=>{
   `;
 
   phoneContainer.appendChild(phoneCard);
-})
+});
+toggleLoadingSpinner(false);
 
 }
 
 
 const handelSearch = () =>{
-
+  toggleLoadingSpinner(true);
   const searchFiled = document.getElementById('search-field');
   const searchTExt = searchFiled.value;
   // console.log(searchTExt);
@@ -69,6 +70,7 @@ const handelSearch = () =>{
 
 
 const handelSearch2 = () =>{
+  toggleLoadingSpinner(true);
   const searchFiled2 =document.getElementById('search-field2');
   const searchText = searchFiled2.value;
   // console.log(searchText);
@@ -76,4 +78,14 @@ const handelSearch2 = () =>{
   loadPhone(searchText);
 }
 
+
+
+const toggleLoadingSpinner = (isLoading)=>{
+ const  loadingSpinner = document.getElementById('loading-spinner');
+   if(isLoading){
+    loadingSpinner.classList.remove('hidden')
+   }else{
+    loadingSpinner.classList.add('hidden');
+   }
+}
 // loadPhone();
