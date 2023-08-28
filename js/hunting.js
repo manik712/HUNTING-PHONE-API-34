@@ -43,7 +43,7 @@ phones.forEach(phone=>{
   <figure><img src="${phone.image}" alt="Shoes" /></figure>
   <div class="card-body">
     <h2 class="card-title justify-center">${phone.phone_name}</h2>
-    <p class="justify-center" >This is manik . If you buy this phone then call me below this number.Don't forget all phones are very nice.01303484964</p>
+    <p class="justify-center" >This is manik . If you buy this phone then call me below this number.Don't forget all phones are very nice.+8801303484964</p>
     <div class="card-actions justify-center">
       <button onclick="ShowDetails('${phone.slug
       }')"  class="btn btn-primary">Show Details</button>
@@ -100,7 +100,7 @@ const handelShowAll =()=>{
 }
 
 const ShowDetails =async(id)=>{
-console.log('gfdgd',id);
+// console.log('gfdgd',id);
 const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
 const data = await res.json();
 // console.log(data);
@@ -120,7 +120,16 @@ const showPhoneDetails = (phone)=>{
 
   showDetailContainer.innerHTML = `
   <img src="${phone.image}" alt=""  />
+  <h5 class="text-xs font-normal  text-blue-500 ">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h5>
   <p><span>Storage:</span>${phone?.mainFeatures?.storage}</p>
+  <h4><span>Display Size:</span>${phone?.mainFeatures?.displaySize}</h4>
+
+  <h3><span>ChipSet:</span>${phone?.mainFeatures?.chipSet}</h3>
+
+  <h2><span>Memory:</span>${phone?.mainFeatures?.memory}</h2>
+  <h1><span>Slug:</span>${phone?.others?.slug || 'No Slug'}</h1>
+  <p><span>GPS:<span>${phone?.others?.GPS || 'NO GPS'}</p>
+
   
   
   `
