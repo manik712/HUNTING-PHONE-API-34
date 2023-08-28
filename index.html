@@ -26,8 +26,13 @@
             <input id="search-field" type="text" placeholder="search phone..." class="input input-bordered w-full max-w-xs" />
             <button onclick="handelSearch()" class="btn btn-accent">Search</button>
             <!-- another search field -->
+
+<!-- 
             <input id="search-field2" type="text" placeholder="Search  here" class="input input-bordered w-full max-w-xs" />
-            <button  onclick="handelSearch2()" class="btn btn-primary">Search</button>
+            <button  onclick="handelSearch2()" class="btn btn-primary">Search</button> -->
+
+
+
            </section>
            <section>
                <div id="loading-spinner" class="text-center my-40 hidden">
@@ -35,8 +40,8 @@
                </div>
                  <div id="phone-container" class=" grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 ">
                 </div>
-                <div id="Show-all-container" class="p-4 hidden">
-                    <button class="btn btn-accent">Show all</button>
+                <div id="Show-all-container" class="p-4 hidden text-center  my-8">
+                    <button  onclick="handelShowAll()"   class="btn btn-accent">Show all</button>
                 </div>
            </section>
      </main>

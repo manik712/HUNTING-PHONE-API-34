@@ -1,14 +1,14 @@
-const loadPhone = async (searchTExt) =>{
+const loadPhone = async (searchTExt ,isShowAll) =>{
   const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${searchTExt}`);
   const data = await res.json();
   const phones =data.data
   // console.log(phones);
-  displayPlay(phones);
+  displayPlay(phones ,isShowAll);
 }
 
 
 
-const displayPlay = phones =>{
+const displayPlay = (phones, isShowAll) =>{
 // console.log(phones);
 
 // 1...
@@ -18,15 +18,18 @@ phoneContainer.textContent = '';
 // display show all button if there are more than 12 phone...
 
 const showAllContainer = document.getElementById('Show-all-container');
-if(phones.length > 12){
+if(phones.length > 12  &&  !isShowAll){
   showAllContainer.classList.remove('hidden')
 
 }else{
   showAllContainer.classList.add('hidden')
 }
 
-// display only first 12
-phones = phones.slice(0,12);
+// display only first 12 phones if not show all
+
+if(!isShowAll){
+  phones = phones.slice(0,12);
+}
 
 
 phones.forEach(phone=>{
@@ -58,25 +61,25 @@ toggleLoadingSpinner(false);
 }
 
 
-const handelSearch = () =>{
+const handelSearch = (isShowAll) =>{
   toggleLoadingSpinner(true);
   const searchFiled = document.getElementById('search-field');
   const searchTExt = searchFiled.value;
   // console.log(searchTExt);
-  searchFiled.value = '';
-  loadPhone(searchTExt);
+  // searchFiled.value = '';
+  loadPhone(searchTExt ,isShowAll);
 
 }
 
 
-const handelSearch2 = () =>{
-  toggleLoadingSpinner(true);
-  const searchFiled2 =document.getElementById('search-field2');
-  const searchText = searchFiled2.value;
-  // console.log(searchText);
-  searchFiled2.value = '';
-  loadPhone(searchText);
-}
+// const handelSearch2 = () =>{
+//   toggleLoadingSpinner(true);
+//   const searchFiled2 =document.getElementById('search-field2');
+//   const searchText = searchFiled2.value;
+//   // console.log(searchText);
+//   searchFiled2.value = '';
+//   loadPhone(searchText);
+// }
 
 
 
@@ -88,4 +91,14 @@ const toggleLoadingSpinner = (isLoading)=>{
     loadingSpinner.classList.add('hidden');
    }
 }
+
+
+const handelShowAll =()=>{
+  handelSearch(true);
+  
+}
+
+
+
+
 // loadPhone();
