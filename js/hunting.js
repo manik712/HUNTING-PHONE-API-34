@@ -106,15 +106,27 @@ const data = await res.json();
 // console.log(data);
 const phone = data.data;
 
-showPhoneDetails(phone)
+showPhoneDetails(phone);
 }
 
 
 
 const showPhoneDetails = (phone)=>{
+  console.log(phone);
+  const phoneName = document.getElementById('show-details-phone-name');
+ phoneName.innerText = phone.name;
+  
+  const showDetailContainer = document.getElementById('show-detail-container');
+
+  showDetailContainer.innerHTML = `
+  <img src="${phone.image}" alt=""  />
+  <p><span>Storage:</span>${phone?.mainFeatures?.storage}</p>
+  
+  
+  `
+
   show_details_modal.showModal();
 
-  console.log(phone);
 } 
 
 // load single data...
