@@ -42,10 +42,11 @@ phones.forEach(phone=>{
   
   <figure><img src="${phone.image}" alt="Shoes" /></figure>
   <div class="card-body">
-    <h2 class="card-title">${phone.phone_name}</h2>
-    <p>If a dog chews shoes whose shoes does he choose?</p>
-    <div class="card-actions justify-end">
-      <button class="btn btn-primary">Buy Now</button>
+    <h2 class="card-title justify-center">${phone.phone_name}</h2>
+    <p class="justify-center" >This is manik . If you buy this phone then call me below this number.Don't forget all phones are very nice.01303484964</p>
+    <div class="card-actions justify-center">
+      <button onclick="ShowDetails('${phone.slug
+      }')"  class="btn btn-primary">Show Details</button>
     </div>
   </div>
   
@@ -98,7 +99,25 @@ const handelShowAll =()=>{
   
 }
 
+const ShowDetails =async(id)=>{
+console.log('gfdgd',id);
+const res = await fetch(`https://openapi.programming-hero.com/api/phone/${id}`);
+const data = await res.json();
+// console.log(data);
+const phone = data.data;
+
+showPhoneDetails(phone)
+}
 
 
 
-// loadPhone();
+const showPhoneDetails = (phone)=>{
+  show_details_modal.showModal();
+
+  console.log(phone);
+} 
+
+// load single data...
+
+
+loadPhone();
