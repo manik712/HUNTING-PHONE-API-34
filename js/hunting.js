@@ -121,7 +121,7 @@ const showPhoneDetails = (phone)=>{
   showDetailContainer.innerHTML = `
   <img src="${phone.image}" alt=""  />
   <h5 class="text-xs font-normal  text-blue-500 ">It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout.</h5>
-  <p><span>Storage:</span>${phone?.mainFeatures?.storage}</p>
+  <p><span class="text-xl font-semibold">Storage:</span>${phone?.mainFeatures?.storage}</p>
   <h4><span>Display Size:</span>${phone?.mainFeatures?.displaySize}</h4>
 
   <h3><span>ChipSet:</span>${phone?.mainFeatures?.chipSet}</h3>
